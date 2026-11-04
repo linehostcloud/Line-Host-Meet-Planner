@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:@mattermost/react"
+  ],
+  "rules": {
+    "header/header": "off",
+    "react/prop-types": "off"
+  }
+}

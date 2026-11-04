@@ -1,0 +1,29 @@
+# Build output and local dependencies
+bin/
+dist/
+server/dist/
+webapp/dist/
+webapp/node_modules/
+webapp/.eslintcache
+webapp/junit.xml
+coverage/
+webapp/src/manifest.ts
+server/manifest.go
+
+# Local credentials and recordings
+.env
+.env.*
+!.env.example
+*client_secret*.json
+credentials*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.mkv
+*.mp4
+
+# Editor files
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,17 @@
+Line Host® Meet Planner
+Copyright 2026 Line Host® Cloud Solutions
+
+This project is a derivative of the Mattermost Google Meet Plugin v2.0.0,
+commit 144dec0a0e2c7a53cf8a765471d5cef153f0c1b8,
+https://github.com/mattermost/mattermost-plugin-google-meet,
+copyright Mattermost, Inc., licensed under the Apache License, Version 2.0.
+
+Line Host® Cloud Solutions modified the plugin to add Google Calendar event
+scheduling, per-user OAuth connection, configurable channel reminders,
+composer controls, localized user-facing text, and public information pages.
+The original copyright notices remain in the source files. See LICENSE for
+the complete Apache License, Version 2.0.
+
+Google Meet and Google Calendar are trademarks of Google LLC. Mattermost is a
+trademark of Mattermost, Inc. This independent project is not endorsed by or
+affiliated with either company.

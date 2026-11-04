@@ -1,0 +1,80 @@
+{
+    "id": "com.linehost.meet-planner",
+    "name": "Line Host Meet Planner",
+    "version": "0.1.8",
+    "description": "Inicie ou agende reuniões Google Meet no Mattermost com a conta Google de cada usuário.",
+    "icon_path": "assets/icon.svg",
+    "min_server_version": "12.0.0",
+    "server": {
+        "executables": {
+            "linux-amd64": "server/dist/plugin-linux-amd64"
+        }
+    },
+    "webapp": {
+        "bundle_path": "webapp/dist/main.js"
+    },
+    "settings_schema": {
+        "header": "**Configuração:** ative as APIs Google Meet REST e Google Calendar, crie um cliente OAuth 2.0 do tipo Aplicativo da Web, cadastre a URL de retorno mostrada abaixo e informe o ID e o segredo do cliente. Cada pessoa conecta a própria conta Google pelo comando /meet connect.",
+        "footer": "",
+        "settings": [
+            {
+                "key": "CallbackURL",
+                "display_name": "URL de retorno OAuth",
+                "type": "custom",
+                "help_text": "Copie esta URL para Google Cloud > Google Auth Platform > Clientes > seu cliente OAuth do tipo Aplicativo da Web > URIs de redirecionamento autorizados. A URL deve ser idêntica, incluindo https e o caminho completo.",
+                "default": null
+            },
+            {
+                "key": "GoogleClientID",
+                "display_name": "ID do cliente OAuth Google",
+                "type": "text",
+                "help_text": "ID do cliente OAuth 2.0 criado no Google Cloud. Se a configuração estiver marcada como ativa acima, os dados já estão salvos no servidor; não é necessário preenchê-los novamente.",
+                "default": ""
+            },
+            {
+                "key": "GoogleClientSecret",
+                "display_name": "Segredo do cliente OAuth Google",
+                "type": "text",
+                "secret": true,
+                "help_text": "Segredo do mesmo cliente OAuth 2.0 do Google Cloud. Por segurança, este campo pode aparecer vazio mesmo quando já está configurado. Preencha apenas ao configurar ou trocar o cliente.",
+                "default": ""
+            },
+            {
+                "key": "EncryptionKey",
+                "display_name": "Chave de criptografia",
+                "type": "generated",
+                "help_text": "Protege os tokens Google salvos. Pode aparecer vazia por segurança. Regerar invalida todas as conexões Google dos usuários.",
+                "secret": true,
+                "default": ""
+            },
+            {
+                "key": "RestrictMeetingCreation",
+                "display_name": "Restringir criação de reuniões",
+                "type": "bool",
+                "help_text": "Restringe a criação de reuniões em canais públicos. Cada usuário conecta a própria conta Google antes de criar reuniões.",
+                "default": false
+            },
+            {
+                "key": "EnableConferenceArtifactPosts",
+                "display_name": "Publicar gravações, transcrições e notas",
+                "type": "bool",
+                "help_text": "Quando ativado, gravações, transcrições e notas de reuniões acompanhadas são publicadas como respostas no canal.",
+                "default": false
+            },
+            {
+                "key": "PollIntervalSeconds",
+                "display_name": "Intervalo de consulta (segundos)",
+                "type": "number",
+                "help_text": "Intervalo de consulta à API do Google Meet para novas gravações e transcrições. Mínimo: 30 segundos. Padrão: 60.",
+                "default": 60
+            },
+            {
+                "key": "ConferenceStartCooldownHours",
+                "display_name": "Intervalo entre avisos de início (horas)",
+                "type": "number",
+                "help_text": "Evita avisos duplicados quando alguém volta à mesma sala Meet pouco depois de uma reunião. Use 0 para desativar. Padrão: 12 horas.",
+                "default": 12
+            }
+        ]
+    }
+}
